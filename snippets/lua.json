@@ -1,0 +1,888 @@
+{
+	// Place your snippets for lua here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+	/* 
+		Types
+	*/
+
+	/* Variable Reference (VarReference_t) */
+	"Leito: var_reference::get": {
+		"prefix": [
+			"var_reference::get"
+		],
+		"body": [
+			"var_reference::get()"
+		],
+		"description": "LEITO API var_reference::get"
+	},
+
+	"Leito: var_reference::set": {
+		"prefix": [
+			"var_reference::set"
+		],
+		"body": [
+			"var_reference::set()"
+		],
+		"description": "LEITO API var_reference::set"
+	},
+
+	/* Menu Item */
+	"Leito: menu_item::get": {
+		"prefix": [
+			"menu_item::get"
+		],
+		"body": [
+			"menu_item::get(${1:optional_index})"
+		],
+		"description": "LEITO API menu_item::get"
+	},
+
+	"Leito: menu_item::get_key": {
+		"prefix": [
+			"menu_item::get_key"
+		],
+		"body": [
+			"menu_item::get_key()"
+		],
+		"description": "LEITO API menu_item::get_key"
+	},
+
+	"Leito: menu_item::get_key_mode": {
+		"prefix": [
+			"menu_item::get_key_mode"
+		],
+		"body": [
+			"menu_item::get_key_mode()"
+		],
+		"description": "LEITO API menu_item::get_key_mode"
+	},
+
+	"Leito: menu_item::set": {
+		"prefix": [
+			"menu_item::set"
+		],
+		"body": [
+			"menu_item::set(${1:value}, ${2:optional_index})"
+		],
+		"description": "LEITO API menu_item::set"
+	},
+
+	"Leito: menu_item::set_key": {
+		"prefix": [
+			"menu_item::set_key"
+		],
+		"body": [
+			"menu_item::set_key(${1:value})"
+		],
+		"description": "LEITO API menu_item::set_key"
+	},
+
+	"Leito: menu_item::set_key_mode": {
+		"prefix": [
+			"menu_item::set_key_mode"
+		],
+		"body": [
+			"menu_item::set_key_mode(${1:value})"
+		],
+		"description": "LEITO API menu_item::set_key_mode"
+	},
+
+	"Leito: menu_item::set_visible": {
+		"prefix": [
+			"menu_item::set_visible"
+		],
+		"body": [
+			"menu_item::set_visible(${1:visible})"
+		],
+		"description": "LEITO API menu_item::set_visible"
+	},
+
+	"Leito: menu_item::set_label": {
+		"prefix": [
+			"menu_item::set_label"
+		],
+		"body": [
+			"menu_item::set_label(${1:label})"
+		],
+		"description": "LEITO API menu_item::set_label"
+	},
+
+	/* 
+		Tables
+	*/
+
+	/* Client */
+	"Leito: client.log": {
+		"prefix": [
+			"client.log"
+		],
+		"body": [
+			"client.log(\"${1:text}\")"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: client.add_callback": {
+		"prefix": [
+			"client.add_callback"
+		],
+		"body": [
+			"client.add_callback(\"${1:callback_name}\", ${2:function()\n\nend})"
+		],
+		"description": "LEITO API"
+	},
+
+    "Leito: client.get_username": {
+		"prefix": [
+			"client.get_username"
+		],
+		"body": [
+			"client.get_username()"
+		],
+		"description": "LEITO API"
+	},
+
+	/* Trace */
+	"Leito: trace.line": {
+		"prefix": [
+			"trace.line"
+		],
+		"body": [
+			"trace.line(${1:skip_entindex}, ${2:mask}, ${3:start}, ${4:end})"
+		],
+		"description": "LEITO API"
+	},
+
+	/* Exploits */
+	"Leito: exploits.needs_recharge": {
+		"prefix": [
+			"exploits.needs_recharge"
+		],
+		"body": [
+			"exploits.needs_recharge()"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: exploits.can_shift": {
+		"prefix": [
+			"exploits.can_shift"
+		],
+		"body": [
+			"exploits.can_shift()"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: exploits.get_goal_shift": {
+		"prefix": [
+			"exploits.get_goal_shift"
+		],
+		"body": [
+			"exploits.get_goal_shift()"
+		],
+		"description": "LEITO API"
+	},
+
+	/* Fake-lag */
+	"Leito: fakelag.get_choked_commands": {
+		"prefix": [
+			"fakelag.get_choked_commands"
+		],
+		"body": [
+			"fakelag.get_choked_commands()"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: fakelag.get_send_packet": {
+		"prefix": [
+			"fakelag.get_send_packet"
+		],
+		"body": [
+			"fakelag.get_send_packet()"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: fakelag.set_send_packet": {
+		"prefix": [
+			"fakelag.set_send_packet"
+		],
+		"body": [
+			"fakelag.set_send_packet(${1:value})"
+		],
+		"description": "LEITO API"
+	},
+
+	/* Rage-bot */
+	"Leito: ragebot.override_min_damage": {
+		"prefix": [
+			"ragebot.override_min_damage"
+		],
+		"body": [
+			"ragebot.override_min_damage(${1:ent_index}, ${2:min_damage})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: ragebot.override_hitchance": {
+		"prefix": [
+			"ragebot.override_hitchance"
+		],
+		"body": [
+			"ragebot.override_hitchance(${1:ent_index}, ${2:hitchance})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: ragebot.override_hitscan": {
+		"prefix": [
+			"ragebot.override_hitscan"
+		],
+		"body": [
+			"ragebot.override_hitscan(${1:ent_index}, ${2:hitbox}, ${3:value})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: ragebot.override_head_scale": {
+		"prefix": [
+			"ragebot.override_head_scale"
+		],
+		"body": [
+			"ragebot.override_head_scale(${1:ent_index}, ${2:percentage})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: ragebot.override_body_scale": {
+		"prefix": [
+			"ragebot.override_body_scale"
+		],
+		"body": [
+			"ragebot.override_body_scale(${1:ent_index}, ${2:percentage})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: ragebot.ignore_target": {
+		"prefix": [
+			"ragebot.ignore_target"
+		],
+		"body": [
+			"ragebot.ignore_target(${1:ent_index})"
+		],
+		"description": "LEITO API"
+	},
+
+	/* Globals */
+	"Leito: globals.get_curtime": {
+		"prefix": [
+			"globals.get_curtime"
+		],
+		"body": [
+			"globals.get_curtime()"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: globals.get_frametime": {
+		"prefix": [
+			"globals.get_frametime"
+		],
+		"body": [
+			"globals.get_frametime()"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: globals.get_absolute_frametime": {
+		"prefix": [
+			"globals.get_absolute_frametime"
+		],
+		"body": [
+			"globals.get_absolute_frametime()"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: globals.get_framecount": {
+		"prefix": [
+			"globals.get_framecount"
+		],
+		"body": [
+			"globals.get_framecount()"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: globals.get_tickcount": {
+		"prefix": [
+			"globals.get_tickcount"
+		],
+		"body": [
+			"globals.get_tickcount()"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: globals.get_realtime": {
+		"prefix": [
+			"globals.get_realtime"
+		],
+		"body": [
+			"globals.get_realtime()"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: globals.get_max_clients": {
+		"prefix": [
+			"globals.get_max_clients"
+		],
+		"body": [
+			"globals.get_max_clients()"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: globals.get_interval_per_tick": {
+		"prefix": [
+			"globals.get_interval_per_tick"
+		],
+		"body": [
+			"globals.get_interval_per_tick()"
+		],
+		"description": "LEITO API"
+	},
+
+	/* Engine */
+	"Leito: engine.client_cmd": {
+		"prefix": [
+			"engine.client_cmd"
+		],
+		"body": [
+			"engine.client_cmd(\"${1:cmd}\")"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: engine.client_cmd_unrestricted": {
+		"prefix": [
+			"engine.client_cmd_unrestricted"
+		],
+		"body": [
+			"engine.client_cmd_unrestricted(\"${1:cmd}\")"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: engine.exec_client_cmd": {
+		"prefix": [
+			"engine.exec_client_cmd"
+		],
+		"body": [
+			"engine.exec_client_cmd(\"${1:cmd}\")"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: engine.get_player_for_user_id": {
+		"prefix": [
+			"engine.get_player_for_user_id"
+		],
+		"body": [
+			"engine.get_player_for_user_id(${1:userid})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: engine.get_local_player_idx": {
+		"prefix": [
+			"engine.get_local_player_idx"
+		],
+		"body": [
+			"engine.get_local_player_idx()"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: engine.get_view_angles": {
+		"prefix": [
+			"engine.get_view_angles"
+		],
+		"body": [
+			"engine.get_view_angles()"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: engine.set_view_angles": {
+		"prefix": [
+			"engine.set_view_angles"
+		],
+		"body": [
+			"engine.set_view_angles(${1:angles})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: engine.get_max_clients": {
+		"prefix": [
+			"engine.get_max_clients"
+		],
+		"body": [
+			"engine.get_max_clients()"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: engine.is_in_game": {
+		"prefix": [
+			"engine.is_in_game"
+		],
+		"body": [
+			"engine.is_in_game()"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: engine.is_connected": {
+		"prefix": [
+			"engine.is_connected"
+		],
+		"body": [
+			"engine.is_connected()"
+		],
+		"description": "LEITO API"
+	},
+
+	/* Entity-List */
+	"Leito: entity_list.get_local_player": {
+		"prefix": [
+			"entity_list.get_local_player"
+		],
+		"body": [
+			"entity_list.get_local_player()"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: entity_list.get_player_by_index": {
+		"prefix": [
+			"entity_list.get_player_by_index"
+		],
+		"body": [
+			"entity_list.get_player_by_index(${1:index})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: entity_list.get_highest_entity_index": {
+		"prefix": [
+			"entity_list.get_highest_entity_index"
+		],
+		"body": [
+			"entity_list.get_highest_entity_index()"
+		],
+		"description": "LEITO API"
+	},
+
+	/* ConVar */
+	"Leito: convar.get_int": {
+		"prefix": [
+			"convar.get_int"
+		],
+		"body": [
+			"convar.get_int(\"${1:var_name}\")"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: convar.get_float": {
+		"prefix": [
+			"convar.get_float"
+		],
+		"body": [
+			"convar.get_float(\"${1:var_name}\")"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: convar.get_string": {
+		"prefix": [
+			"convar.get_string"
+		],
+		"body": [
+			"convar.get_string(\"${1:var_name}\")"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: convar.set_value": {
+		"prefix": [
+			"convar.set_value"
+		],
+		"body": [
+			"convar.set_value(\"${1:var_name}\", ${2:value})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: convar.null_callback": {
+		"prefix": [
+			"convar.null_callback"
+		],
+		"body": [
+			"convar.null_callback(\"${1:var_name}\")"
+		],
+		"description": "LEITO API"
+	},
+
+	/* Render */
+	"Leito: render.create_font": {
+		"prefix": [
+			"render.create_font"
+		],
+		"body": [
+			"render.create_font(\"${1:family}\", ${2:height})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: render.draw_text": {
+		"prefix": [
+			"render.draw_text"
+		],
+		"body": [
+			"render.draw_text(${1:font}, ${2:pos}, ${3:text}, ${4:color})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: render.draw_text_outlined": {
+		"prefix": [
+			"render.draw_text_outlined"
+		],
+		"body": [
+			"render.draw_text_outlined(${1:font}, ${2:pos}, ${3:text}, ${4:color})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: render.text_size": {
+		"prefix": [
+			"render.text_size"
+		],
+		"body": [
+			"render.text_size(${1:font}, ${2:text})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: render.draw_filled_rect": {
+		"prefix": [
+			"render.draw_filled_rect"
+		],
+		"body": [
+			"render.draw_filled_rect(${1:pos}, ${2:dim}, ${3:color})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: render.draw_outlined_rect": {
+		"prefix": [
+			"render.draw_outlined_rect"
+		],
+		"body": [
+			"render.draw_outlined_rect(${1:pos}, ${2:dim}, ${3:color})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: render.draw_multi_color_rect": {
+		"prefix": [
+			"render.draw_multi_color_rect"
+		],
+		"body": [
+			"render.draw_multi_color_rect(${1:pos}, ${2:dim}, ${3:color1}, ${4:color2}, ${5:color3}, ${6:color4})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: render.draw_line": {
+		"prefix": [
+			"render.draw_line"
+		],
+		"body": [
+			"render.draw_line(${1:pos1}, ${2:pos2}, ${3:color})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: render.draw_filled_triangle": {
+		"prefix": [
+			"render.draw_filled_triangle"
+		],
+		"body": [
+			"render.draw_filled_triangle(${1:pos1}, ${2:pos2}, ${3:pos3}, ${4:color})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: render.draw_outlined_triangle": {
+		"prefix": [
+			"render.draw_outlined_triangle"
+		],
+		"body": [
+			"render.draw_outlined_triangle(${1:pos1}, ${2:pos2}, ${3:pos3}, ${4:color})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: render.draw_filled_circle": {
+		"prefix": [
+			"render.draw_filled_circle"
+		],
+		"body": [
+			"render.draw_filled_circle(${1:pos}, ${2:radius}, ${3:color})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: render.draw_outlined_circle": {
+		"prefix": [
+			"render.draw_outlined_circle"
+		],
+		"body": [
+			"render.draw_outlined_circle(${1:pos}, ${2:radius}, ${3:color})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: render.draw_world_circle": {
+		"prefix": [
+			"render.draw_world_circle"
+		],
+		"body": [
+			"render.draw_world_circle(${1:pos3d}, ${2:radius}, ${3:color}, ${4:filled})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: render.get_screen_size": {
+		"prefix": [
+			"render.get_screen_size"
+		],
+		"body": [
+			"render.get_screen_size()"
+		],
+		"description": "LEITO API"
+	},
+
+	/* Input */
+	"Leito: input.get_cursor_position": {
+		"prefix": [
+			"input.get_cursor_position"
+		],
+		"body": [
+			"input.get_cursor_position()"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: input.key_pressed": {
+		"prefix": [
+			"input.key_pressed"
+		],
+		"body": [
+			"input.key_pressed(${1:key})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: input.key_down": {
+		"prefix": [
+			"input.key_down"
+		],
+		"body": [
+			"input.key_down(${1:key})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: input.key_released": {
+		"prefix": [
+			"input.key_released"
+		],
+		"body": [
+			"input.key_released(${1:key})"
+		],
+		"description": "LEITO API"
+	},
+
+	/* UI */
+	"Leito: ui.add_check_box": {
+		"prefix": [
+			"ui.add_check_box"
+		],
+		"body": [
+			"ui.add_check_box(${1:label}, ${2:var_name}, ${3:def_value})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: ui.add_slider_int": {
+		"prefix": [
+			"ui.add_slider_int"
+		],
+		"body": [
+			"ui.add_slider_int(${1:label}, ${2:var_name}, ${3:def_value}, ${4:min_value}, ${5:max_value})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: ui.add_slider_float": {
+		"prefix": [
+			"ui.add_slider_float"
+		],
+		"body": [
+			"ui.add_slider_float(${1:label}, ${2:var_name}, ${3:def_value}, ${4:min_value}, ${5:max_value})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: ui.add_key_bind": {
+		"prefix": [
+			"ui.add_key_bind"
+		],
+		"body": [
+			"ui.add_key_bind(${1:label}, ${2:var_name}, ${3:def_key}, ${4:def_mode})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: ui.add_combo_box": {
+		"prefix": [
+			"ui.add_combo_box"
+		],
+		"body": [
+			"ui.add_combo_box(${1:label}, ${2:var_name}, ${3:items}, ${4:def_value})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: ui.add_multi_combo_box": {
+		"prefix": [
+			"ui.add_multi_combo_box"
+		],
+		"body": [
+			"ui.add_multi_combo_box(${1:label}, ${2:var_name}, ${3:items}, ${4:def_values})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: ui.add_color_picker": {
+		"prefix": [
+			"ui.add_color_picker"
+		],
+		"body": [
+			"ui.add_color_picker(${1:label}, ${2:var_name}, ${3:def_value})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: ui.get_variable_reference": {
+		"prefix": [
+			"ui.get_variable_reference"
+		],
+		"body": [
+			"ui.get_variable_reference(${1:var_name})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: ui.get_cheat_keybind_state": {
+		"prefix": [
+			"ui.get_cheat_keybind_state"
+		],
+		"body": [
+			"ui.get_cheat_keybind_state(${1:keybind_state})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: ui.is_menu_visible": {
+		"prefix": [
+			"ui.is_menu_visible"
+		],
+		"body": [
+			"ui.is_menu_visible()"
+		],
+		"description": "LEITO API"
+	},
+
+	/* Utils */
+	"Leito: utils.world_to_screen": {
+		"prefix": [
+			"utils.world_to_screen"
+		],
+		"body": [
+			"utils.world_to_screen(${1:pos})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: utils.find_netvar": {
+		"prefix": [
+			"utils.find_netvar"
+		],
+		"body": [
+			"utils.find_netvar(${1:table}, ${2:prop})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: utils.find_signature": {
+		"prefix": [
+			"utils.find_signature"
+		],
+		"body": [
+			"utils.find_signature(${1:module_name}, ${2:sig})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: utils.create_interface": {
+		"prefix": [
+			"utils.create_interface"
+		],
+		"body": [
+			"utils.create_interface(${1:module_name}, ${2:interface_version})"
+		],
+		"description": "LEITO API"
+	},
+
+	"Leito: utils.set_clantag": {
+		"prefix": [
+			"utils.set_clantag"
+		],
+		"body": [
+			"utils.set_clantag(${1:tag}, ${2:name})"
+		],
+		"description": "LEITO API"
+	},
+}

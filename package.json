@@ -1,0 +1,24 @@
+{
+    "name": "Leito",
+    "displayName": "Leito Snippets",
+    "version": "0.0.3",
+    "publisher": "Leito",
+    "description": "Leito Snippets for the Lua Api",
+    "engines": {
+        "vscode": "^1.0.0"
+    },
+    "icon": "images/logo.png",
+    "contributes": {
+        "snippets": [
+            {
+                "language": "lua",
+                "path": "snippets/lua.json"
+            }
+        ]
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Leito-CHEAT/API-Snippets.git"
+    },
+    "homepage": "https://github.com/Leito-CHEAT/API-Snippets/blob/main/README.md"
+  }
