@@ -1,7 +1,7 @@
 {
     "name": "Leito",
     "displayName": "Leito Snippets",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "publisher": "Leito",
     "description": "Leito Snippets for the Lua Api",
     "engines": {
